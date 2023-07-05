@@ -5,21 +5,21 @@ Pascal Triangle
 """
 
 
-def pascal_triangle(number_of_rows: int) -> list[list[int]]:
+def pascal_triangle(n):
     """ Simple Pascal Triangle
 
     Args:
-        number_of_rows (int): number of rows
+        n (int): number of rows
 
     Returns:
         list: a list of lists of (n) rows
     """
-    if number_of_rows <= 0:
+    if n <= 0:
         return [[]]
 
     result = [[1]]
 
-    for i in range(number_of_rows - 1):
+    for i in range(n - 1):
         temp = [0] + result[-1] + [0]
         new_row = []
         for j in range(len(result[-1]) + 1):
