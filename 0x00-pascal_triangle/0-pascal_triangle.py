@@ -15,7 +15,7 @@ def pascal_triangle(n):
         list: a list of lists of (n) rows
     """
     if n <= 0:
-        return [[]]
+        return []
 
     result = [[1]]
 
