@@ -4,7 +4,7 @@
 """
 
 
-def canUnlockAll(boxes: list) -> bool:
+def canUnlockAll(boxes):
     """Checks if all boxes can be unlocked
 
     Args:
