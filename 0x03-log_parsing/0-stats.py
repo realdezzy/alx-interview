@@ -21,10 +21,9 @@ def print_values():
     """ Format and print stats to stdout.
     """
     print(f"File size: {size}")
-    for k, v in statuses.items():
-        if v == 0:
-            continue
-        print(f"{k}: {v}")
+    for k, v in sorted(statuses.items()):
+        if v != 0:
+            print(f"{k}: {v}")
 
 
 if __name__ == "__main__":
