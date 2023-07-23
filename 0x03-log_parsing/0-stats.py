@@ -22,6 +22,8 @@ def print_values():
     """
     print(f"File size: {size}")
     for k, v in statuses.items():
+        if v == 0:
+            continue
         print(f"{k}: {v}")
 
 
