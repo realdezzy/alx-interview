@@ -2,10 +2,8 @@
 """ Display stats logging
 """
 import sys
-import re
-
 count = 0
-size = 0
+total_size = 0
 statuses = {
     '200': 0,
     '301': 0,
@@ -16,8 +14,7 @@ statuses = {
     '405': 0,
     '500': 0,
 }
-regx = (r"(\d{1,3}\.){3}\d{1,3} - \[\d{4}-\d{2}-\d{2} (\d{2}:)"
-        r"{2}\d{2}\.\d{6}\] \"GET /projects/260 HTTP/1.1\" \d{3} \d{1,4}")
+keys = statuses.keys()
 
 
 def print_values():
@@ -33,10 +30,12 @@ if __name__ == "__main__":
         for values in sys.stdin:
             if (count > 0 and count % 10 == 0):
                 print_values()
-            if re.search(regx, values):
-                value = values.split()
-                statuses[value[7]] += 1
-                size += int(value[8])
+            value = values.split()
+            status = value[7]
+            size = int(value[8])
+            if status in keys:
+                statuses[status] += 1
+                total_size += size
                 count += 1
 
             else:
