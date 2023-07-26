@@ -1,12 +1,13 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 """Utf-8 validation
 """
 import unicodedata
-from typing import List 
+from typing import List
 
 
+# Quick hack \U0001f60e
 def validUTF8(data: List[int]) -> bool:
-    """Validate utf8 string
+    """ Validate utf8
 
     Args:
         data (List[int]): list of integer representing the UTF-8 value
@@ -19,5 +20,5 @@ def validUTF8(data: List[int]) -> bool:
             unicodedata.name(chr(i))
         return True
 
-    except:
+    except Exception:
         return False
