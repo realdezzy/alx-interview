@@ -32,7 +32,8 @@ def n_queens(m, i=0, a=[], b=[], c=[]):
     if i < m:
         for j in range(m):
             if j not in a and i + j not in b and i - j not in c:
-                yield from n_queens(m, i + 1, a + [j], b + [i + j], c + [i - j])
+                yield from n_queens(m, i + 1, a + [j],
+                                    b + [i + j], c + [i - j])
     else:
         yield a
 
